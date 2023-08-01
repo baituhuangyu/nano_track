@@ -13,13 +13,13 @@ endif()
 
 MESSAGE("OPENCV VERSION:")
 MESSAGE(${OpenCV_VERSION})
-include_directories(. ${OpenCV_INCLUDE_DIRS} )
+include_directories(.. ${OpenCV_INCLUDE_DIRS} )
 
 #FIND_PACKAGE(Eigen REQUIRED)
 
 add_executable(opencv_nano_track
-        opencv_dnn/main_opencv_dnn.cpp
-        opencv_dnn/tracker_nano2.cpp)
+        main_opencv_dnn.cpp
+        tracker_nano2.cpp)
 target_link_libraries(opencv_nano_track
         ${OpenCV_LIBS}
         fftw3

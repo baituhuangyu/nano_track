@@ -79,7 +79,7 @@ int run(int argc, char** argv)
     }
 
     const std::string winName = "NanoTrack";
-    namedWindow(winName, cv::WINDOW_AUTOSIZE);
+    // cv::namedWindow(winName, cv::WINDOW_AUTOSIZE);
 
     // Open a video file or an image file or a camera stream.
     cv::VideoCapture cap;
@@ -117,7 +117,8 @@ int run(int argc, char** argv)
     putText(image_select, "Select initial bounding box you want to track.", cv::Point(0, 15), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 255, 0));
     putText(image_select, "And Press the ENTER key.", cv::Point(0, 35), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 255, 0));
 
-    cv::Rect selectRect = selectROI(winName, image_select);
+    // cv::Rect selectRect = selectROI(winName, image_select);
+    cv::Rect selectRect = {252, 168, 57, 54};
     std::cout << "ROI=" << selectRect << std::endl;
 
     tracker->init(image, selectRect);
@@ -158,13 +159,13 @@ int run(int argc, char** argv)
             putText(render_image, scoreLabel, cv::Point(0, 35), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 255, 0));
         }
 
-        imshow(winName, render_image);
+        // cv::imshow(winName, render_image);
 
         tickMeter.reset();
 
-        int c = cv::waitKey(1);
-        if (c == 27 /*ESC*/)
-            break;
+        // int c = cv::waitKey(1);
+        // if (c == 27 /*ESC*/)
+        //     break;
     }
 
     std::cout << "Exit" << std::endl;
